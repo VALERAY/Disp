@@ -830,7 +830,7 @@ def open_main_window(user):
 
     ttk.Label(frame_add, text="Состояние выполнения:").grid(row=9, column=0, sticky=tk.W, pady=5)
     status_var = tk.StringVar(value="в работе")
-    status_combo = ttk.Combobox(frame_add, textvariable=status_var, values=["в работе", "не выполнено", "выполнено"], state="readonly", width=37)
+    status_combo = ttk.Combobox(frame_add, textvariable=status_var, values=["в работе", "не выполнено", "не на балансе", "выполнено"], state="readonly", width=37)
     status_combo.grid(row=9, column=1, sticky=(tk.W, tk.E), padx=(10, 0), pady=5)
 
     ttk.Label(frame_add, text="Примечание:").grid(row=10, column=0, sticky=tk.W, pady=5)
@@ -1731,7 +1731,7 @@ def open_main_window(user):
         ttk.Label(filters_panel, text="Состояние:").grid(row=1, column=2, sticky="w", padx=(0, 6), pady=(8, 0))
         local_status_var = tk.StringVar(value="")
         local_status = ttk.Combobox(filters_panel, textvariable=local_status_var,
-                                    values=["", "в работе", "не выполнено", "выполнено"], state="readonly", width=18)
+                                    values=["", "в работе", "не выполнено", "не на балансе", "выполнено"], state="readonly", width=18)
         local_status.grid(row=1, column=3, sticky=(tk.W, tk.E), pady=(8, 0))
 
         def apply_local_filters():
@@ -3411,7 +3411,7 @@ def open_main_window(user):
             except Exception:
                 _status_base = (rec[6] or "не выполнено")
             status_var = tk.StringVar(value=_status_base)
-            status_combo = ttk.Combobox(frm, textvariable=status_var, values=["в работе", "не выполнено", "выполнено"], state="readonly", width=27)
+            status_combo = ttk.Combobox(frm, textvariable=status_var, values=["в работе", "не выполнено", "не на балансе", "выполнено"], state="readonly", width=27)
             status_combo.grid(row=9, column=1, sticky=(tk.W, tk.E), padx=(10, 0), pady=5)
 
             ttk.Label(frm, text="Примечание:").grid(row=10, column=0, sticky=tk.W, pady=5)
@@ -3527,7 +3527,7 @@ def open_main_window(user):
 
             ttk.Label(frm, text="Статус:").grid(row=0, column=0, sticky=tk.W, pady=6)
             st_var = tk.StringVar(value=curr_status)
-            st_combo = ttk.Combobox(frm, textvariable=st_var, values=["в работе", "не выполнено", "выполнено"], state="readonly", width=22)
+            st_combo = ttk.Combobox(frm, textvariable=st_var, values=["в работе", "не выполнено", "не на балансе", "выполнено"], state="readonly", width=22)
             st_combo.grid(row=0, column=1, sticky=(tk.W, tk.E), padx=(10, 0), pady=6)
 
             def save_status():
